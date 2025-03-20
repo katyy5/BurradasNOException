@@ -1,22 +1,31 @@
 package burradas;
 
+/**
+ * Excepción personalizada que se lanza cuando se detecta una palabra prohibida.
+ * 
+ * @author Katherin Cabrera
+ * @version 1.0
+ */
 public class BurradasNOException extends Exception {
+    /** Palabra prohibida que provocó la excepción */
+    private String palabraProhibida;
 
-	
-	// Definición de la excepción personalizada que extiende de Exception
-	
-	    private String palabraProhibida; // Atributo para almacenar la palabra que causó la excepción
+    /**
+     * Constructor de la excepción.
+     * 
+     * @param palabra Palabra prohibida detectada.
+     */
+    public BurradasNOException(String palabra) {
+        super("Se ha detectado una palabra prohibida: " + palabra);
+        this.palabraProhibida = palabra;
+    }
 
-	    // Constructor que recibe la palabra prohibida y define el mensaje de error
-	    public BurradasNOException(String palabra) {
-	        super("Error no se permite lenguaje obsceno: " + palabra);
-	        this.palabraProhibida = palabra;
-	    }
-
-	    // Método getter para obtener la palabra prohibida
-	    public String getPalabraProhibida() {
-	        return palabraProhibida;
-	    
-	}
-
+    /**
+     * Devuelve la palabra prohibida que provocó la excepción.
+     * 
+     * @return La palabra prohibida.
+     */
+    public String getPalabraProhibida() {
+        return palabraProhibida;
+    }
 }
